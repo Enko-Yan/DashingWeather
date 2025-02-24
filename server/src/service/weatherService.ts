@@ -64,18 +64,46 @@ class WeatherService {
   }
   // TODO: Create buildWeatherQuery method
   private buildWeatherQuery(coordinates: Coordinates): string {
-    return `${this.API_BASE_URL}/data/3.0/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude={part}&appid=${this.API_Key}`
+    return `${this.API_BASE_URL}/data/3.0/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude={part}&appid=${this.API_KEY}`
   }
   // TODO: Create fetchAndDestructureLocationData method
-  private async fetchAndDestructureLocationData() {
-    
+  private async fetchAndDestructureLocationData(city: string): Promise<Coordinates | null> {
+    const response = await fetch(this.buildGeocodeQuery(city));
+    const locationData = await response.json();
+
+    if (locationData > 0) {
+      return this.destructureLocationData(locationData[0]);
+    } else {
+      console.error('Location not found');
+      return null;
+    }
   }
   // TODO: Create fetchWeatherData method
-  private async fetchWeatherData(coordinates: Coordinates) {}
+  private async fetchWeatherData(coordinates: Coordinates): Promise<Weather> {
+    const response = await fetch(this.buildWeatherQuery(coordinates));
+    const data = await response.json();
+
+    const temperature = data.current.temp; 
+    const wind = data.current.wind_speed; 
+    const humidity = data.current.humidity; 
+
+    return new Weather(temperature, wind, humidity);
+
+  }
   // TODO: Build parseCurrentWeather method
-  private parseCurrentWeather(response: any) {}
+  private parseCurrentWeather(response: any): Weather {
+    const temperature = response.current.temp;
+    const wind = response.current.wind_speed;
+    const humidity = response.current.humidity;
+
+    return new Weather(temperature, wind, humidity);
+
+  }
   // TODO: Complete buildForecastArray method
-  private buildForecastArray(currentWeather: Weather, weatherData: any[]) {}
+  private buildForecastArray(currentWeather: Weather, weatherData: any[]): Weather [] {
+    const forecastArray: Weather[] = [];
+    
+  }
   // TODO: Complete getWeatherForCity method
   async getWeatherForCity(city: string) {}
 }
