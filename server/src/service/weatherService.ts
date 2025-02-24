@@ -10,12 +10,12 @@ interface Coordinates {
 // TODO: Define a class for the Weather object
 class Weather {
   temperature: number;
-  wind: number;
+  windSpeed: number;
   humidity: number;
 
   constructor (temperature: number, wind: number, humidity: number) {
     this.temperature = temperature;
-    this.wind = wind;
+    this.windSpeed = wind;
     this.humidity = humidity;
   }
 
