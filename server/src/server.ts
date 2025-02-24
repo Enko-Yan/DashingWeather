@@ -9,6 +9,7 @@ import { json } from 'node:stream/consumers';
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+process.env.API_KEY
 
 // ✅TODO: Serve static files of entire client dist folder
 app.use(express.static('client'));
