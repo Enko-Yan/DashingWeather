@@ -12,7 +12,9 @@ Due to time restraints the project is incomplete at this time.
 ## Technologies used
 * Openweathermap.og/api
 * Express.js - Web framework for building server-side applications.
-* Node.js - 
+* Node.js - JavaScript runtime for development outside the browser. Prerequisite for Express.js.
+* Dotenv - Module used to load .env files and store them in a seperate environment from the file.
+* TypeScript - JavaScript subset used for catching errors when they happen instead of at runtime. 
 ## Lessons Learned
 * Understanding the basics of setting up an Express.js server with TypeScript.
 * Experience with creating and managing routes and middleware.
@@ -21,3 +23,5 @@ Due to time restraints the project is incomplete at this time.
 * Yan Sergiyenko
 GitHub: https://github.com/Enko-Yan
 ## License 
+![Static Badge](https://img.shields.io/badge/License-MIT-purple)
+
