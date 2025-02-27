@@ -22,6 +22,9 @@ Due to time restraints the project is incomplete at this time.
 ## Credits
 * Yan Sergiyenko
 GitHub: https://github.com/Enko-Yan
+* Stackoverflow - For reference.
+* EdX class recordings - For reference.
+* Xpert Assistance - For debugging and problem solving. 
 ## License 
 ![Static Badge](https://img.shields.io/badge/License-MIT-purple)
 
